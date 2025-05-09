@@ -428,24 +428,6 @@ class _OverlayInfoPopupState extends State<OverlayInfoPopup> {
                   CompositedTransformFollower(
                     link: widget._layerLink,
                     showWhenUnlinked: false,
-                    offset: _indicatorOffset,
-                    child: AnimatedScale(
-                      scale: _isLayoutMounted ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 50),
-                      alignment: Alignment.topCenter,
-                      child: CustomPaint(
-                        size: widget._indicatorTheme.arrowSize,
-                        painter: widget._indicatorTheme.arrowPainter ??
-                            ArrowIndicatorPainter(
-                              arrowDirection: arrowDirection,
-                              arrowColor: widget._indicatorTheme.color,
-                            ),
-                      ),
-                    ),
-                  ),
-                  CompositedTransformFollower(
-                    link: widget._layerLink,
-                    showWhenUnlinked: false,
                     offset: _bodyOffset,
                     child: AnimatedScale(
                       scale: _isLayoutMounted ? 1.0 : 0.0,
@@ -500,7 +482,25 @@ class _OverlayInfoPopupState extends State<OverlayInfoPopup> {
                         );
                       }),
                     ),
-                  )
+                  ),
+                  CompositedTransformFollower(
+                    link: widget._layerLink,
+                    showWhenUnlinked: false,
+                    offset: _indicatorOffset,
+                    child: AnimatedScale(
+                      scale: _isLayoutMounted ? 1.0 : 0.0,
+                      duration: const Duration(milliseconds: 50),
+                      alignment: Alignment.topCenter,
+                      child: CustomPaint(
+                        size: widget._indicatorTheme.arrowSize,
+                        painter: widget._indicatorTheme.arrowPainter ??
+                            ArrowIndicatorPainter(
+                              arrowDirection: arrowDirection,
+                              arrowColor: widget._indicatorTheme.color,
+                            ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
