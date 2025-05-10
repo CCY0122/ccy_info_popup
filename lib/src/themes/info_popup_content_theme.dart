@@ -23,6 +23,7 @@ class InfoPopupContentTheme {
     this.infoContainerBackgroundColor = Colors.white,
     this.contentPadding = const EdgeInsets.all(8.0),
     this.contentBorderRadius = PopupConstants.defaultContentBorderRadius,
+    this.specificAlignment,
   });
 
   /// The [infoTextStyle] of the info text.
@@ -39,6 +40,9 @@ class InfoPopupContentTheme {
 
   /// The [borderRadius] of the info container.
   final BorderRadius contentBorderRadius;
+
+  /// 1 = content布局强制靠左（即箭头在最右上下角），2 = 强制靠右， null = 自动
+  final int? specificAlignment;
 
   /// [copyWith] is used to copy the [InfoPopupContentTheme] with new values.
   InfoPopupContentTheme copyWith({

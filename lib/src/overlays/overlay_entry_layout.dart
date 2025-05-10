@@ -199,7 +199,12 @@ class _OverlayInfoPopupState extends State<OverlayInfoPopup> {
     final double contentHeight = contentSize.height;
     final double targetWidth = _targetWidgetRect.width;
     final double targetHeight = _targetWidgetRect.height;
-    final double contentDxCenter = targetWidth / 2 - contentWidth / 2;
+    double contentDxCenter = targetWidth / 2 - contentWidth / 2;
+    if (widget._contentTheme.specificAlignment == 1) {
+      contentDxCenter = -contentWidth;
+    } else if (widget._contentTheme.specificAlignment == 2) {
+      contentDxCenter = 0;
+    }
 
     switch (arrowDirection) {
       case ArrowDirection.up:
