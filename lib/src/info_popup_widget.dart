@@ -155,6 +155,10 @@ class _InfoPopupWidgetState extends State<InfoPopupWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) => _updateRenderBox());
     return MouseRegion(
       onHover: (PointerHoverEvent event) {
+        if (widget.dismissTriggerBehavior ==
+            PopupDismissTriggerBehavior.manuel) {
+          return;
+        }
         if (_isMouseRegionPermitted && !_infoPopupController!.isShowing) {
           _infoPopupController!.show();
         }
