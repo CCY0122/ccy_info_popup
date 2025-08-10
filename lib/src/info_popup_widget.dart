@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -115,8 +117,9 @@ class _InfoPopupWidgetState extends State<InfoPopupWidget> {
   }
 
   bool get _isMouseRegionPermitted {
-    final bool mouseIsConnected =
-        RendererBinding.instance.mouseTracker.mouseIsConnected;
+    // final bool mouseIsConnected =
+    //     RendererBinding.instance.mouseTracker.mouseIsConnected;
+    final bool mouseIsConnected = false;
 
     if (!mouseIsConnected || !_isControllerInitialized) {
       return false;
@@ -189,6 +192,7 @@ class _InfoPopupWidgetState extends State<InfoPopupWidget> {
   }
 
   Function()? _behaviour() {
+    // log("info pop - onTap");
     // ignore: use_if_null_to_convert_nulls_to_bools
     if (_infoPopupController?.isShowing == true) {
       return null;

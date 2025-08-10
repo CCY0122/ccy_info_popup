@@ -82,9 +82,14 @@ class _OverlayInfoPopupState extends State<OverlayInfoPopup> {
     if (!mounted) {
       return;
     }
+    // log("_handlePointerEvent $event");
+    if(event is PointerHoverEvent){
+      return;
+    }
 
-    final bool mouseIsConnected =
-        RendererBinding.instance.mouseTracker.mouseIsConnected;
+    // final bool mouseIsConnected =
+    //     RendererBinding.instance.mouseTracker.mouseIsConnected;
+    final bool mouseIsConnected = false;
 
     if (mouseIsConnected) {
       GestureBinding.instance.pointerRouter.removeGlobalRoute(

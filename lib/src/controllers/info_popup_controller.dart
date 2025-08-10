@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -138,7 +140,7 @@ class InfoPopupController {
               onAreaPressed!.call(this);
               return;
             }
-
+            // log("info pop - onAreaPressed");
             dismissInfoPopup();
           },
         );
